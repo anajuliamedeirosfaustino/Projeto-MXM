@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vvGL42qUS1RlGuNReIOA8B8eV5WhN7tvLr5K/2QX8OJdiVpwD9Skps1ovOY2/oZcZS9dXDzhuCX6O01eeXl5dw==",
+  "success": true,
+  "projectFilePath": "/home/ana/MXM/Web/Web.csproj",
+  "expectedPackageFiles": [
+    "/home/ana/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

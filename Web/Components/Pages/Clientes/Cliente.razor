@@ -1,0 +1,71 @@
+@page "/cliente"
+@rendermode InteractiveServer
+@inject Web.Cliente.ClienteCode model;
+
+<PageTitle>Cliente</PageTitle>
+
+
+<h3 class="text-center">Buscar cliente(s)</h3>
+
+<EditForm FormName="cadCliente" Model="@model" OnValidSubmit="model.HandleSubmit">
+    <div class="mb-3">
+        <InputText class="form-control" @bind-Value="@model.Cpf" placeholder="CPF" />
+        <br>
+        <button type="button submit" class="btn btn-primary">Buscar</button>
+    </div>
+
+</EditForm>
+
+@if (model.ClienteModel != null)
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@model.ClienteModel.Nome</td>
+            <td>@model.ClienteModel.Cpf</td>
+            <td>@model.ClienteModel.Cnpj</td>
+            <td>@model.ClienteModel.Email</td>
+            <td>@model.ClienteModel.Telefone</td>
+        </tr>
+    </tbody>
+</table>
+}
+
+@if (model.ListCliente != null)
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in model.ListCliente)
+            {
+                <tr>
+                    <td>@client.Nome</td>
+                    <td>@client.Cpf</td>
+                    <td>@client.Cnpj</td>
+                    <td>@client.Email</td>
+                    <td>@client.Telefone</td>
+                    <button type="button submit" class="btn btn-danger"
+                        onclick="@( () => model.DeleteClientByCpf(client.Cpf) )">Excluir</button>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
